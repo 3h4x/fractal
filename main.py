@@ -11,7 +11,6 @@ screen = pygame.display.set_mode(pair_reader(int)(DEFAULT_SIZE))
 
 
 def main():
-    # Loop until exit
     done = False
     clock = pygame.time.Clock()
     zoom = 90
@@ -22,9 +21,9 @@ def main():
         # Leave this out and we will use all CPU we can.
         clock.tick(20)
 
-        for event in pygame.event.get():  # User did something
-            if event.type == pygame.QUIT:  # If user clicked close
-                done = True  # Flag that we are done so we exit this loop
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT: # If user clicked close
+                done = True # Flag that we are done so we exit this loop
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_UP:
                     zoom -= 10
@@ -32,7 +31,6 @@ def main():
                 if event.key == pygame.K_DOWN:
                     zoom += 10
                     render = True
-            
 
         if render:
           draw_fractal(screen, zoom)
